@@ -56,6 +56,24 @@ class Graph{
         }
         return result
     }
+    BFS(vertex){
+        let q = [vertex]; 
+        let result = []; 
+        let visited = {}; 
+        visited[vertex] = true; 
+        let current 
+        while(q.length){
+            current = q.shift(); 
+            result.push(current); 
+            this.adjacencyList[current].forEach(neighbor => {
+                if(!visited[neighbor]){ 
+                    visited[neighbor] = true 
+                    q.push(neighbor)
+                }
+            })
+        }
+        return result
+    }
 }
 
 let g = new Graph(); 
@@ -76,18 +94,6 @@ g.addEdge("E", "F")
 
 
 console.log(g.DFSRecursive("A"))
+console.log(g.DFSIterative("A"))
+console.log(g.BFS("A"))
 
-
-/**
- 
- * ✅ Function accepts a vertex 
- * ✅ Create a list to store the end result, to be returned at the very end 
- * ✅ Create an object to store visited vertices 
- * ✅ Create a helper function which accepts a vertex 
- * ✅ The hlper function should return early if a vertex is empty 
- * ✅ The helper function should place the vertex it accepts into the visited object and push the vertex into the results array 
- * ✅ Loop over all of the values in the adjacencyList for that vertex 
- * ✅ If any of those values have not been visited, recursively invoke the helper function with that vertex 
- * ✅ Invoke the helper function with the staring vertex
- * Return the results array 
- */
