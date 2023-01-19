@@ -39,6 +39,23 @@ class Graph{
         helper(vertex); 
         return results
     }
+    DFSIterative(vertex){
+        let s = [];
+        let result = []; 
+        let visited = {}; 
+        s.push(vertex); 
+       
+
+        while(s.length){
+            let current = s.pop(); 
+            if(!visited[current]){
+                visited[current] = true; 
+                result.push(current);
+                this.adjacencyList[current].forEach((neighbor) => s.push(neighbor)); 
+            }
+        }
+        return result
+    }
 }
 
 let g = new Graph(); 
