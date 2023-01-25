@@ -1,5 +1,4 @@
-const { is } = require("@babel/types");
-const isSubsequence = require("../problem-solving-approaches/exercise-6-multiple-pointers-isSubsequence-NOT-COMPLETE-YET"); 
+const isSubsequence = require("../problem-solving-approaches/exercise-6-multiple-pointers-isSubsequence"); 
 test("isSubsequence handles a substring longer than string", () => {
     expect(isSubsequence("abcde", "abc")).toBe(false)
 })

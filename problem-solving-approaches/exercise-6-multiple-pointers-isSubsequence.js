@@ -60,7 +60,7 @@ function isSubsequence(substr, str){
     let p2 = 0; 
     let subLetter; 
     let letter; 
-    
+
     while(p2 < str.length && p1 < substr.length){
         subLetter = substr[p1]; 
         letter = str[p2]; 
